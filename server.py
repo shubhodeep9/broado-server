@@ -18,7 +18,7 @@ def api():
     data = json.load(page)
     gender= data['face'][0]['attribute']['gender']['value']
     smiling = data['face'][0]['attribute']['smiling']['value']
-    return jsonify(gender=gender, smile=smile)
+    return jsonify(gender=gender, smile=smiling)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
