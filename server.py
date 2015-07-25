@@ -149,7 +149,24 @@ def getRating():
     query = g.db.execute('SELECT * from upload where location =?',[address])
     for i in query.fetchall():
         sum=sum+int(i[5])
+        if(str(i[7])=='Old Age'):
+            old_age=old_age+1
+        elif(str(i[7])=='Youth'):
+            youth=youth+1
+        elif(str(i[7])=='Teenager'):
+            teen=teen+1
+        elif(str(i[7])=='Kids'):
+            kids=kids+1
+
         counter=counter+1
+    if (old_age>youth and old_age>teen and old_age>kids):
+        return "Old Age"
+    elif(youth>old_age and youth>teen and youth>kids):
+        return "Kids"
+    elif(teen>youth and teen > kids and teen > old_age):
+        return "Teenager"
+    elif(kids>youth and kids>teen and kids>old_age):
+        return "Kids"
     averageRating= float(sum)/float(counter)
     return str(averageRating)
 if __name__ == '__main__':
