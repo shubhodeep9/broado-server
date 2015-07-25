@@ -17,8 +17,22 @@ def api():
     page = urllib2.urlopen(url)
     data = json.load(page)
     gender= data['face'][0]['attribute']['gender']['value']
-    smiling = data['face'][0]['attribute']['smiling']['value']
-    return jsonify(gender=gender, smile=smiling)
+    age = data['face'][0]['attribute']['age']['value']
+    def rating():
+    	smiling = data['face'][0]['attribute']['smiling']['value']
+    	if(smiling>75):
+    		rate=5
+    	if(smiling>61 and smiling<76):
+    		rate=4
+    	if(smiling>50 and smiling<62):
+    		rate=3
+    	if(smiling>35 and smiling<15):
+    		rate=2
+    	elif(smiling<15):
+    		rate=1
+
+    
+    return jsonify(gender=gender, rating=rate)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
