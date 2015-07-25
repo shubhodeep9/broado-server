@@ -109,7 +109,22 @@ def travel():
         js.append(r)
     return jsonify(nearby=js)
 
+@app.route('/eudgetApi' methods =['GET','POST'])
+def getbudget():
+    budget = requests.args.get('budget', 5000, type = int)
+    living = requests.args.get('living', type = str)
+    if(living=='royale'):
+        hotels = g.db.execute('select * from hotels where living=royale')
+        #Display data
+    else if(living=='normal'):
+        hotels = g.db.execute('select * from hotels where living=normal')
+        #display data
+    elif (living=='low'):
+        hotels = g.db.execute('select * from hotels where living=low')
+        
+        #Display data
 
+    #finally, send all the data in json...(Hotel selected based upon the rating..)
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
