@@ -53,7 +53,7 @@ def api():
         r = json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory})
         js.append(r)
         c=c+1
-    return '{'+','.join(str(j) for j in js)+'}'
+    return jsonify(results=js)
 
 @app.route('/')
 def see():
