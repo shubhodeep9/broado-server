@@ -1,6 +1,6 @@
 # broado-server
 
-## The server deployed on : 
+## The server deployed on : http://broado-server.herokuapp.com/
 
 
 API's : 
