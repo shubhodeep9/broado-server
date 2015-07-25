@@ -99,15 +99,18 @@ def travel():
     data = json.load(page)
     loc = g.db.execute('select * from location where city = ?',[location])
     bla = []
+    des = []
     for row in loc.fetchall():
         bla.append(row[4])
+        des.append(row[3])
     bla.append(places_img[location])
+    des.append('Hometown')
     for i in range(len(data['routes'][0]['legs'])):
         start = data['routes'][0]['legs'][i]['start_address']
         duration = data['routes'][0]['legs'][i]['duration']['text']
         distance = data['routes'][0]['legs'][i]['distance']['text']
         end = data['routes'][0]['legs'][i]['end_address']
-        r = json.loads(json.dumps({'start':start, 'duration':duration, 'distance':distance, 'end':end, 'img': bla[i]}, sort_keys = False,indent=4, separators=(',', ': ')))
+        r = json.loads(json.dumps({'start':start, 'duration':duration, 'distance':distance, 'end':end, 'img': bla[i],'description': des[i]}, sort_keys = False,indent=4, separators=(',', ': ')))
         js.append(r)
     return jsonify(nearby=js)
 
