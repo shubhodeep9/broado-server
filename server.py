@@ -88,7 +88,7 @@ def travel():
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|'+ways+'&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
     data = json.load(page)
-    return url
+    return jsonify(data=data)
 
 
 if __name__ == '__main__':
