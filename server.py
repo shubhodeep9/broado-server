@@ -55,12 +55,15 @@ def api():
         c=c+1
     return jsonify(results=js)
 
-@app.route('/')
-def see():
-    url = 'http://localhost:5000/api?img=http://www.uhv.edu/bus/Images/ThreePeopleInSuits.jpg'
+@app.route('/travelRecommender', methods=['GET','POST'])
+def city():
+    location = request.args.get('location',0)
+    location.lower()
+    if(location=='bangalore')
+    url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|Cubbon%Park|Lal%Bagh|ISCKON%Temple|Bangalore%Palace|Wonderla|Orion%Mall&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
-    data = json.loads(da)
-
+    data = json.load(page)
+    return data
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
