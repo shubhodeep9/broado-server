@@ -16,7 +16,9 @@ def api():
     url = 'http://apius.faceplusplus.com/v2/detection/detect?api_key=e2707513a30c55f950583457e8845ec1&api_secret=9cWd6oDOtFMmqhGT7mwPKphefakx52tI&url='+str(img_url)
     page = urllib2.urlopen(url)
     data = json.load(page)
-    return jsonify(data=data)
+    gender= data['face'][0]['attribute']['gender']['value']
+    smiling = data['face'][0]['attribute']['smiling']['value']
+    return jsonify(gender=gender, smile=smile)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
