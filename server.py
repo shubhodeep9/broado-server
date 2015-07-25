@@ -129,7 +129,24 @@ def getbudget():
 
         #Display data
 
-    #finally, send all the data in json...(Hotel selected based upon the rating..)
+    #finally, send all the data in json...(Hotel selected based upon the rating..)def
+
+@app.route('/giveAverageRating', methods =["GET","POST"])
+def getRating():
+    sum=0
+    counter = 0
+    latitude = request.args.get('latitude', 0, type = float)
+    longitude = request.args.get('longitude', 0 , type = float)
+    url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+str(latitude)+','+str(longitude)+'&sensor=true'
+    page = urllib2.urlopen(url)
+    data = json.load(page)
+    address = data['results'][0]['formatted_address']
+    query = g.db.execute('SELECT * from upload where location =?',[address])
+    for i in query.fetchall():
+        sum=sum+int(i[5])   
+        counter=counter+1
+    float(averageRating)= float(sum/counter)
+    return str(averageRating)
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
