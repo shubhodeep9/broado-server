@@ -114,7 +114,7 @@ def getbudget():
     if(living=='royale'):
         hotels = g.db.execute('select * from hotels where living=royale')
         #Display data
-    else if(living=='normal'):
+    elif(living=='normal'):
         hotels = g.db.execute('select * from hotels where living=normal')
         #display data
     elif (living=='low'):
