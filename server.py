@@ -74,15 +74,6 @@ def api():
         c=c+1
     return jsonify(results=js)
 
-@app.route('/travelRecommender', methods=['GET','POST'])
-def city():
-    location = request.args.get('location',0)
-    location = location.lower()
-    if(location=='bangalore'):
-        url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|CubbonPark|LalBagh|ISCKONTemple|BangalorePalace|Wonderla|OrionMall&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
-        page = urllib2.urlopen(url)
-        data = json.load(page)
-        return jsonify(data=data)
 
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
