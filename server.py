@@ -80,6 +80,7 @@ def travel():
     location = request.args.get('location',0)
     location = location.title()
     recommend = g.db.execute('select * from location where city = ?',[location])
+    js = []
     locals = []
     for row in recommend.fetchall():
         locals.append(row[2].replace(' ',''))
@@ -88,7 +89,14 @@ def travel():
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|'+ways+'&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
     data = json.load(page)
-    return jsonify(data=data)
+    for i in range(len(data['routes'][0]['legs'])):
+        start = data['routes'][0]['legs'][i]['start_address']
+        duration = data['routes'][0]['legs'][i]['duration']['text']
+        distance = data['routes'][0]['legs'][i]['distance']['text']
+        end = data['routes'][0]['legs'][i]['end_address']
+        r = json.loads(json.dumps({'start':start, 'duration':duration, 'distance':distance, 'end':end}, sort_keys = False,indent=4, separators=(',', ': ')))
+        js.append(r)
+    return jsonify(nearby=js)
 
 
 if __name__ == '__main__':
