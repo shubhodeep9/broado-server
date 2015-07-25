@@ -61,7 +61,7 @@ def api():
 @app.route('/travelRecommender', methods=['GET','POST'])
 def city():
     location = request.args.get('location',0)
-    location.lower()
+    location = location.lower()
     if(location=='bangalore')
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|Cubbon%Park|Lal%Bagh|ISCKON%Temple|Bangalore%Palace|Wonderla|Orion%Mall&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
