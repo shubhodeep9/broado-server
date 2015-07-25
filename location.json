@@ -1,0 +1,447 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Kings Road",
+               "short_name" : "Kings Rd",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "VIT University",
+               "short_name" : "VIT University",
+               "types" : []
+            },
+            {
+               "long_name" : "VIT University",
+               "short_name" : "VIT University",
+               "types" : [ "sublocality_level_1", "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "632014",
+               "short_name" : "632014",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "VIT University, Kings Road, VIT University, Vellore, Tamil Nadu 632014, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 12.9687984,
+                  "lng" : 79.1560444
+               },
+               "southwest" : {
+                  "lat" : 12.9687976,
+                  "lng" : 79.15572299999999
+               }
+            },
+            "location" : {
+               "lat" : 12.968798,
+               "lng" : 79.15588369999999
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 12.9701469802915,
+                  "lng" : 79.15723268029151
+               },
+               "southwest" : {
+                  "lat" : 12.9674490197085,
+                  "lng" : 79.15453471970849
+               }
+            }
+         },
+         "place_id" : "ChIJt7j78Z9HrTsRwlWqWad0Vd8",
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "VIT",
+               "short_name" : "VIT",
+               "types" : [
+                  "bus_station",
+                  "transit_station",
+                  "point_of_interest",
+                  "establishment"
+               ]
+            },
+            {
+               "long_name" : "State Highway 59",
+               "short_name" : "SH 59",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "VIT University",
+               "short_name" : "VIT University",
+               "types" : [ "sublocality_level_1", "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "632014",
+               "short_name" : "632014",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "VIT, State Highway 59, VIT University, Vellore, Tamil Nadu 632014, India",
+         "geometry" : {
+            "location" : {
+               "lat" : 12.9680751,
+               "lng" : 79.156065
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 12.9694240802915,
+                  "lng" : 79.15741398029151
+               },
+               "southwest" : {
+                  "lat" : 12.9667261197085,
+                  "lng" : 79.15471601970849
+               }
+            }
+         },
+         "place_id" : "ChIJr7V46p9HrTsRAuC3zFoCVig",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "VIT University",
+               "short_name" : "VIT University",
+               "types" : [ "sublocality_level_1", "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "VIT University, Vellore, Tamil Nadu, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 12.9766231,
+                  "lng" : 79.16511109999999
+               },
+               "southwest" : {
+                  "lat" : 12.9661661,
+                  "lng" : 79.14973499999999
+               }
+            },
+            "location" : {
+               "lat" : 12.9723913,
+               "lng" : 79.1576752
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 12.9766231,
+                  "lng" : 79.16511109999999
+               },
+               "southwest" : {
+                  "lat" : 12.9661661,
+                  "lng" : 79.14973499999999
+               }
+            }
+         },
+         "place_id" : "ChIJwWE0f6FHrTsRv8-Mfyp6zho",
+         "types" : [ "sublocality_level_1", "sublocality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Vellore, Tamil Nadu, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 13.0018815,
+                  "lng" : 79.1967487
+               },
+               "southwest" : {
+                  "lat" : 12.796736,
+                  "lng" : 79.039936
+               }
+            },
+            "location" : {
+               "lat" : 12.9165167,
+               "lng" : 79.13249859999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 13.0018815,
+                  "lng" : 79.1967487
+               },
+               "southwest" : {
+                  "lat" : 12.796736,
+                  "lng" : 79.039936
+               }
+            }
+         },
+         "place_id" : "ChIJ-4-mH-Y4rTsRXismfZGm3b4",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "632014",
+               "short_name" : "632014",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "632014, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 12.9896983,
+                  "lng" : 79.1759251
+               },
+               "southwest" : {
+                  "lat" : 12.9502932,
+                  "lng" : 79.1520756
+               }
+            },
+            "location" : {
+               "lat" : 12.9639956,
+               "lng" : 79.1604971
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 12.9896983,
+                  "lng" : 79.1759251
+               },
+               "southwest" : {
+                  "lat" : 12.9502932,
+                  "lng" : 79.1520756
+               }
+            }
+         },
+         "place_id" : "ChIJyQbWgqJHrTsR_n-Mikzrhmk",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Vellore",
+               "short_name" : "Vellore",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Vellore, Tamil Nadu, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 13.207863,
+                  "lng" : 79.792717
+               },
+               "southwest" : {
+                  "lat" : 12.249651,
+                  "lng" : 78.3995901
+               }
+            },
+            "location" : {
+               "lat" : 12.8464805,
+               "lng" : 78.92882419999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 13.207863,
+                  "lng" : 79.792717
+               },
+               "southwest" : {
+                  "lat" : 12.249651,
+                  "lng" : 78.3995901
+               }
+            }
+         },
+         "place_id" : "ChIJ-4-mH-Y4rTsR8aj_XAFVu2Q",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Tamil Nadu",
+               "short_name" : "TN",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Tamil Nadu, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 13.496666,
+                  "lng" : 80.3464511
+               },
+               "southwest" : {
+                  "lat" : 8.0774075,
+                  "lng" : 76.23055409999999
+               }
+            },
+            "location" : {
+               "lat" : 11.1271225,
+               "lng" : 78.6568942
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 13.496666,
+                  "lng" : 80.3464511
+               },
+               "southwest" : {
+                  "lat" : 8.0774075,
+                  "lng" : 76.23055409999999
+               }
+            }
+         },
+         "place_id" : "ChIJM5YYsYLFADsR8GEzRsx1lFU",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 35.5087008,
+                  "lng" : 97.395561
+               },
+               "southwest" : {
+                  "lat" : 6.7535159,
+                  "lng" : 68.162386
+               }
+            },
+            "location" : {
+               "lat" : 20.593684,
+               "lng" : 78.96288
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.5087008,
+                  "lng" : 97.395561
+               },
+               "southwest" : {
+                  "lat" : 6.7535159,
+                  "lng" : 68.16288519999999
+               }
+            }
+         },
+         "place_id" : "ChIJkbeSa_BfYzARphNChaFPjNc",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
