@@ -82,7 +82,9 @@ def api():
         g.db.commit()
 
     return jsonify(entries=[2,3])
+
 places_img = {'Chennai': 'https://upload.wikimedia.org/wikipedia/commons/7/73/Chennai_Kathipara_bridge.jpg', 'Mumbai': 'https://upload.wikimedia.org/wikipedia/commons/6/66/Mumbai_skyline88907.jpg','Bangalore':'http://www.discoverbangalore.com/images/Slide1.jpg'}
+
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
     location = request.args.get('location',0)
@@ -119,25 +121,20 @@ def db_See():
     sel = g.db.execute('select * from upload')
     see = []
     for i in sel.fetchall():
-        see.append(i[0])
+        see.append(dict(location=i[0],url=i[2]))
     return jsonify(see=see)
 
 @app.route('/budgetApi', methods =['GET','POST'])
 def getbudget():
-    budget = requests.args.get('budget', 5000, type = int)
-    living = requests.args.get('living', type = str)
-    if(living=='royale'):
-        hotels = g.db.execute('select * from hotels where living=royale')
-        #Display data
-    elif(living=='normal'):
-        hotels = g.db.execute('select * from hotels where living=normal')
-        #display data
-    elif (living=='low'):
-        hotels = g.db.execute('select * from hotels where living=low')
+    city = request.args.get('city',0)
+    living = request.args.get('living', 0)
+    hot = g.db.execute('select * from hotels where hotel_type=? and hotel_city=?',[living,city.title()])
+    hotel = []
+    for i in hot.fetchall():
+        hotel.append(dict(name=i[1],rating=i[2],facilities=i[3],review=i[4]))
 
-        #Display data
+    return jsonify(see=hotel)
 
-    #finally, send all the data in json...(Hotel selected based upon the rating..)def
 
 @app.route('/giveAverageRating', methods =["GET","POST"])
 def getRating():
