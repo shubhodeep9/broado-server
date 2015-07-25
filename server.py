@@ -107,7 +107,7 @@ def travel():
         js.append(r)
     return jsonify(nearby=js)
 
-@app.route('/eudgetApi' methods =['GET','POST'])
+@app.route('/eudgetApi', methods =['GET','POST'])
 def getbudget():
     budget = requests.args.get('budget', 5000, type = int)
     living = requests.args.get('living', type = str)
@@ -119,7 +119,7 @@ def getbudget():
         #display data
     elif (living=='low'):
         hotels = g.db.execute('select * from hotels where living=low')
-        
+
         #Display data
 
     #finally, send all the data in json...(Hotel selected based upon the rating..)
