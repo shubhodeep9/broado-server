@@ -30,9 +30,9 @@ def api():
     		rate=2
     	elif(smiling<15):
     		rate=1
-
-    
-    return jsonify(gender=gender, rating=rate)
+    	return rate
+    rate1 = rating()
+    return jsonify(gender=gender, rating=rate1)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
