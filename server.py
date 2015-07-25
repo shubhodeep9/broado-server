@@ -33,7 +33,6 @@ def teardown_request(exception):
 
 @app.route('/api', methods=['GET','POST'])
 def api():
-    js = []
     c=0
     img_url = request.args.get('img',0)
     url = 'http://apius.faceplusplus.com/v2/detection/detect?api_key=e2707513a30c55f950583457e8845ec1&api_secret=9cWd6oDOtFMmqhGT7mwPKphefakx52tI&url='+str(img_url)
@@ -82,7 +81,7 @@ def api():
         g.db.execute('insert into upload (img_url,ageCategory,latitude,longitude,rating,gender,location) values (?,?,?,?,?,?,?)',[img_url,ageCategory,latitude,longitude,rate1,gender,address])
         g.db.commit()
 
-    return 'yo'
+    return '{yo}'
 
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
