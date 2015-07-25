@@ -40,6 +40,8 @@ def api():
     page = urllib2.urlopen(url)
     data = json.load(page)
     for i in range(len(data['face'])):
+        latitude = request.args.get('latitude', 0, type = float)
+        longitude = request.args.get('longitude', 0 , type = float)
         gender= data['face'][i]['attribute']['gender']['value']
         age = data['face'][i]['attribute']['age']['value']
         def getAgeCategory():
@@ -69,22 +71,18 @@ def api():
         	return rate
 
         def givePlaceName():
-            latitude = requests.args.get('latitude', 0, type = float)
-            longitude = requests.args.get('longitude', 0 , type = float)
-            url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true'
+            url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+str(latitude)+','+str(longitude)+'&sensor=true'
             page = urllib2.urlopen(url)
             data = json.load(page)
-            address = data['formatted_address']
+            address = data['results'][0]['formatted_address']
             return address
-            pass
         rate1 = rating()
         ageCategory = getAgeCategory()
         address = givePlaceName()
-        r = json.loads(json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory}, sort_keys = True,indent=4, separators=(',', ': ')))
-        js.append(r)
-        c=c+1
+        g.db.execute('insert into upload (img_url,ageCategory,latitude,longitude,rating,gender,location) values (?,?,?,?,?,?,?)',[img_url,ageCategory,latitude,longitude,rate1,gender,address])
+        g.db.commit()
 
-    return jsonify(results=js)
+    return 'yo'
 
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
