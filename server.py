@@ -18,6 +18,18 @@ def api():
     data = json.load(page)
     gender= data['face'][0]['attribute']['gender']['value']
     age = data['face'][0]['attribute']['age']['value']
+    def getAgeCategory():
+    	age = data['face'][0]['attribute']['age']['value']
+    	if(age>55):
+    		ageCategory = "Old Age"
+    	if(age>20 and age<56):
+    		ageCategory = "Youth"
+		if(age>12 and age<21):
+			ageCategory = "Teenager"
+		if(age<12):
+		    ageCategory = "Kids"
+		
+		return ageCategory
     def rating():
     	smiling = data['face'][0]['attribute']['smiling']['value']
     	if(smiling>75):
@@ -32,9 +44,10 @@ def api():
     		rate=1
     	return rate
     rate1 = rating()
-    return jsonify(gender=gender, rating=rate1)
+    ageCategory = getAgeCategory()
+    return jsonify(gender=gender, rating=rate1, ageCategory = ageCategory)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT',5000))
+    port = int(os.environ.get('PORT',5000))		
     ## keep the debug mode on in flask - it helps
     app.run(host='0.0.0.0', port= port, debug=True)
