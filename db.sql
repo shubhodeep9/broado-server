@@ -15,7 +15,7 @@ create table if not exists upload(
   ageCategory varchar(20) not null
 
 );
-create table if not exists hotels( 
+create table if not exists hotels(
   id integer primary key autoincrement,
   hotel_name varchar(225) not null,
   hotel_price integer not null,
@@ -23,4 +23,4 @@ create table if not exists hotels(
   hotel_facilities varchar(225),
   hotel_review varchar(225),
   hotel_type varchar(225)
-)
+);
