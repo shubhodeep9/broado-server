@@ -10,6 +10,9 @@ from flask import Response
 
 app = Flask(__name__)
 
+DATABASE = 'DB/broado.db'
+DEBUG = True
+
 app.secret_key = os.urandom(24)
 
 @app.route('/api', methods=['GET','POST'])
