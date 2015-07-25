@@ -50,7 +50,7 @@ def api():
         	return rate
         rate1 = rating()
         ageCategory = getAgeCategory()
-        r = json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory})
+        r = json.loads(json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory}, sort_keys = True,indent=4, separators=(',', ': ')))
         js.append(r)
         c=c+1
     return jsonify(results=js)
