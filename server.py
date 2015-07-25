@@ -81,7 +81,7 @@ def api():
         g.db.execute('insert into upload (img_url,ageCategory,latitude,longitude,rating,gender,location) values (?,?,?,?,?,?,?)',[img_url,ageCategory,latitude,longitude,rate1,gender,address])
         g.db.commit()
 
-    return '{yo}'
+    return jsonify(entries=[2,3])
 
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
