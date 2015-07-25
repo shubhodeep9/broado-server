@@ -111,7 +111,7 @@ def db_See():
     sel = g.db.execute('select * from upload')
     see = []
     for i in sel.fetchall():
-        see.append(i[4])
+        see.append(i[0])
     return jsonify(see=see)
 
 @app.route('/budgetApi', methods =['GET','POST'])
