@@ -143,9 +143,9 @@ def getRating():
     address = data['results'][0]['formatted_address']
     query = g.db.execute('SELECT * from upload where location =?',[address])
     for i in query.fetchall():
-        sum=sum+int(i[5])   
+        sum=sum+int(i[5])
         counter=counter+1
-    float(averageRating)= float(sum/counter)
+    averageRating= float(sum)/float(counter)
     return str(averageRating)
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
