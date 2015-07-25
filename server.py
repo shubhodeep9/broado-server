@@ -1,4 +1,4 @@
-from flask import Flask, session, render_template
+from flask import Flask, session, render_template, g
 ## you did not import "request"
 from flask import request, jsonify
 import requests
@@ -7,6 +7,7 @@ import os
 import urllib2
 import simplejson as jsons
 from flask import Response
+import sqlite3
 
 app = Flask(__name__)
 
@@ -14,6 +15,21 @@ DATABASE = 'DB/broado.db'
 DEBUG = True
 
 app.secret_key = os.urandom(24)
+app.config.from_object(__name__)
+app.config.from_envvar('TRAVELSAFE_SETTINGS', silent=True)
+
+def connect_db():
+    return sqlite3.connect(app.config['DATABASE'])
+
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+@app.teardown_request
+def teardown_request(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
 
 @app.route('/api', methods=['GET','POST'])
 def api():
@@ -61,12 +77,29 @@ def api():
 @app.route('/travelRecommender', methods=['GET','POST'])
 def city():
     location = request.args.get('location',0)
-    location.lower()
-    if(location=='bangalore')
-    url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|Cubbon%Park|Lal%Bagh|ISCKON%Temple|Bangalore%Palace|Wonderla|Orion%Mall&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
+    location = location.lower()
+    if(location=='bangalore'):
+        url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|CubbonPark|LalBagh|ISCKONTemple|BangalorePalace|Wonderla|OrionMall&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
+        page = urllib2.urlopen(url)
+        data = json.load(page)
+        return jsonify(data=data)
+
+@app.route('/travelApi', methods=['GET','POST'])
+def travel():
+    location = request.args.get('location',0)
+    location = location.title()
+    recommend = g.db.execute('select * from location where city = ?',[location])
+    locals = []
+    for row in recommend.fetchall():
+        locals.append(row[2].replace(' ',''))
+
+    ways = '|'.join(locals)
+    url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|'+ways+'&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
     data = json.load(page)
-    return data
+    return url
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
