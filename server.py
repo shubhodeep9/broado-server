@@ -107,6 +107,14 @@ def travel():
         js.append(r)
     return jsonify(nearby=js)
 
+@app.route('/db')
+def db_See():
+    sel = g.db.execute('select * from upload')
+    see = []
+    for i in sel.fetchall():
+        see.append(i[4])
+    return jsonify(see=see)
+
 @app.route('/budgetApi', methods =['GET','POST'])
 def getbudget():
     budget = requests.args.get('budget', 5000, type = int)
