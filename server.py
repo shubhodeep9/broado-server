@@ -82,7 +82,7 @@ def api():
         g.db.commit()
 
     return jsonify(entries=[2,3])
-
+places_img = {'Chennai': 'https://upload.wikimedia.org/wikipedia/commons/7/73/Chennai_Kathipara_bridge.jpg', 'Mumbai': 'https://upload.wikimedia.org/wikipedia/commons/6/66/Mumbai_skyline88907.jpg','Bangalore':'http://www.discoverbangalore.com/images/Slide1.jpg'}
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
     location = request.args.get('location',0)
@@ -97,12 +97,17 @@ def travel():
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+location+'&destination='+location+'&waypoints=optimize:true|'+ways+'&key=AIzaSyDVYEzlC_MuzKNDIwWzipvny3dkf4nSBVo'
     page = urllib2.urlopen(url)
     data = json.load(page)
+    loc = g.db.execute('select * from location where city = ?',[location])
+    bla = []
+    for row in loc.fetchall():
+        bla.append(row[4])
+    bla.append(places_img[location])
     for i in range(len(data['routes'][0]['legs'])):
         start = data['routes'][0]['legs'][i]['start_address']
         duration = data['routes'][0]['legs'][i]['duration']['text']
         distance = data['routes'][0]['legs'][i]['distance']['text']
         end = data['routes'][0]['legs'][i]['end_address']
-        r = json.loads(json.dumps({'start':start, 'duration':duration, 'distance':distance, 'end':end}, sort_keys = False,indent=4, separators=(',', ': ')))
+        r = json.loads(json.dumps({'start':start, 'duration':duration, 'distance':distance, 'end':end, 'img': bla[i]}, sort_keys = False,indent=4, separators=(',', ': ')))
         js.append(r)
     return jsonify(nearby=js)
 
