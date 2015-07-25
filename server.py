@@ -107,7 +107,7 @@ def travel():
         js.append(r)
     return jsonify(nearby=js)
 
-@app.route('/eudgetApi', methods =['GET','POST'])
+@app.route('/budgetApi', methods =['GET','POST'])
 def getbudget():
     budget = requests.args.get('budget', 5000, type = int)
     living = requests.args.get('living', type = str)
