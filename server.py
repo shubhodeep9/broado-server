@@ -67,13 +67,24 @@ def api():
         	elif(smiling<15):
         		rate=1
         	return rate
+
+        def givePlaceName():
+            latitude = requests.args.get('latitude', 0, type = float)
+            longitude = requests.args.get('longitude', 0 , type = float)
+            url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true'
+            page = urllib2.urlopen(url)
+            data = json.load(page)
+            address = data['formatted_address']
+            return address
+            pass
         rate1 = rating()
         ageCategory = getAgeCategory()
+        address = givePlaceName()
         r = json.loads(json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory}, sort_keys = True,indent=4, separators=(',', ': ')))
         js.append(r)
         c=c+1
-    return jsonify(results=js)
 
+    return jsonify(results=js)
 
 @app.route('/travelApi', methods=['GET','POST'])
 def travel():
