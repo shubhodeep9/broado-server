@@ -136,7 +136,7 @@ def getbudget():
     return jsonify(see=hotel)
 
 
-@app.route('/giveAverageRating', methods =["GET","POST"])
+@app.route('/ratingApi', methods =["GET","POST"])
 def getRating():
     sum=0
     counter = 0
@@ -145,30 +145,33 @@ def getRating():
     url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+str(latitude)+','+str(longitude)+'&sensor=true'
     page = urllib2.urlopen(url)
     data = json.load(page)
+    age = {'old_age':0,'youth':0,'teen':0,'kids':0}
     address = data['results'][0]['formatted_address']
     query = g.db.execute('SELECT * from upload where location =?',[address])
     for i in query.fetchall():
         sum=sum+int(i[5])
         if(str(i[7])=='Old Age'):
-            old_age=old_age+1
+            age['old_age']=age['old_age']+1
         elif(str(i[7])=='Youth'):
-            youth=youth+1
+            age['youth']=age['youth']+1
         elif(str(i[7])=='Teenager'):
-            teen=teen+1
+            age['teen']=age['teen']+1
         elif(str(i[7])=='Kids'):
-            kids=kids+1
+            age['kids']=age['kids']+1
 
         counter=counter+1
-    if (old_age>youth and old_age>teen and old_age>kids):
-        return "Old Age"
-    elif(youth>old_age and youth>teen and youth>kids):
-        return "Kids"
-    elif(teen>youth and teen > kids and teen > old_age):
-        return "Teenager"
-    elif(kids>youth and kids>teen and kids>old_age):
-        return "Kids"
+    age_group = ''
+    if (age['old_age']>age['youth'] and age['old_age']>age['teen'] and age['old_age']>age['kids']):
+        age_group = "Old Age"
+    elif(age['youth']>age['old_age'] and age['youth']>age['teen'] and age['youth']>age['kids']):
+        age_group = "Kids"
+    elif(age['teen']>age['youth'] and age['teen'] > age['kids'] and age['teen'] > age['old_age']):
+        age_group = "Teenager"
+    elif(age['kids']>age['youth'] and age['kids']>age['teen'] and age['kids']>age['old_age']):
+        age_group = "Kids"
     averageRating= float(sum)/float(counter)
-    return str(averageRating)
+    return jsonify(age_group=age_group,rating=averageRating)
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
