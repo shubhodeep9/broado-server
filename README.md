@@ -2,7 +2,7 @@
 ##Contributors : Anurag Tiwari, Ashwini Purohit, Amit Kumar Rai, Shubhodeep Mukherjee, Gautham K. Reddy
 ## The server deployed on : http://dwealo.com:5000/api/<br />
 ### An API engine for our hackathon App broado for travelbased system.
-#Server Deployed on Amazon Web Service
+#Server Deployed on Amazon Web Service for testing we used Heroku
 
 ##Problem Statement :   
 #(2nd) Creating new ways to capture data on mobile for example: user experience of capturing reviews or improving the overall booking experience.
