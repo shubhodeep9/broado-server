@@ -7,7 +7,7 @@
 ##Problem Statement :   
 #(2nd) Creating new ways to capture data on mobile for example: user experience of capturing reviews or improving the overall booking experience.
 
-Implementation of a user-user collaborative filtering for better recommendations of Hotes, Restaurants, places to go around in a city. We have created 3 API's , the link to them is given below. 
+Implementation of a user-user collaborative filtering for better recommendations of Hotels, Restaurants, places to go around in a city. We have created 3 API's , the link to them is given below. 
 
 ##Process Flow:
 
