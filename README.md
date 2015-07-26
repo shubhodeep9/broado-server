@@ -1,5 +1,5 @@
 # broado-server
-##Contributors : Anurag Tiwari, Ashwini Purohit, Amit Kumar Rai, Shubhodeep Mukherjee, Gautham K. Reddy
+##Contributors : Shubhodeep Mukherjee ,Ashwini Purohit, Anurag Tiwari, Amit Kumar Rai, Gautham K. Reddy
 ## The server deployed on : http://dwealo.com:5000/api/<br />
 ### An API engine for our hackathon App broado for travelbased system.
 #Server Deployed on Amazon Web Service for testing we used Heroku
