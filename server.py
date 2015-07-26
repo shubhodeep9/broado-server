@@ -34,6 +34,7 @@ def teardown_request(exception):
 @app.route('/api', methods=['GET','POST'])
 def api():
     c=0
+    js=[]
     img_url = request.args.get('img',0)
     url = 'http://apius.faceplusplus.com/v2/detection/detect?api_key=e2707513a30c55f950583457e8845ec1&api_secret=9cWd6oDOtFMmqhGT7mwPKphefakx52tI&url='+str(img_url)
     page = urllib2.urlopen(url)
@@ -80,8 +81,10 @@ def api():
         address = givePlaceName()
         g.db.execute('insert into upload (img_url,ageCategory,latitude,longitude,rating,gender,location) values (?,?,?,?,?,?,?)',[img_url,ageCategory,latitude,longitude,rate1,gender,address])
         g.db.commit()
+        r = json.loads(json.dumps({'gender':gender, 'rating':rate1, 'ageCategory': ageCategory}, sort_keys = True,indent=4, separators=(',', ': ')))
+        js.append(r)
 
-    return jsonify(entries=[2,3])
+    return jsonify(results=js)
 
 places_img = {'Chennai': 'https://upload.wikimedia.org/wikipedia/commons/7/73/Chennai_Kathipara_bridge.jpg', 'Mumbai': 'https://upload.wikimedia.org/wikipedia/commons/6/66/Mumbai_skyline88907.jpg','Bangalore':'http://www.discoverbangalore.com/images/Slide1.jpg'}
 
