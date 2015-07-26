@@ -1,8 +1,8 @@
 # broado-server
 
-## The server deployed on : http://broado-server.herokuapp.com/<br />
+## The server deployed on : http://dwealo.com:5000/<br />
 ### An API engine for our hackathon App broado for travelbased system.
-
+#Server Deployed on Amazon Web Service
 
 API's : 
 
