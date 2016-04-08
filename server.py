@@ -35,8 +35,9 @@ def teardown_request(exception):
 def api():
     c=0
     js=[]
-    img_url = request.args.get('img',0)
-    url = 'http://apius.faceplusplus.com/v2/detection/detect?api_key=e2707513a30c55f950583457e8845ec1&api_secret=9cWd6oDOtFMmqhGT7mwPKphefakx52tI&url='+str(img_url)
+    img_url = request.args.get('img','')
+    url = 'http://apius.faceplusplus.com/v2/detection/detect?api_key=e2707513a30c55f950583457e8845ec1&api_secret=9cWd6oDOtFMmqhGT7mwPKphefakx52tI&url='+img_url
+    
     page = urllib2.urlopen(url)
     data = json.load(page)
     for i in range(len(data['face'])):
@@ -58,16 +59,16 @@ def api():
     		return ageCategory
         def rating():
         	smiling = data['face'][i]['attribute']['smiling']['value']
-            rate = 1
+                
         	if(smiling>75):
         		rate=5
-        	if(smiling>61 and smiling<76):
+        	elif(smiling>61 and smiling<76):
         		rate=4
-        	if(smiling>50 and smiling<62):
+        	elif(smiling>50 and smiling<62):
         		rate=3
-        	if(smiling>35 and smiling<15):
+        	elif(smiling>15 and smiling<35):
         		rate=2
-        	elif(smiling<15):
+        	else:
         		rate=1
         	return rate
 
