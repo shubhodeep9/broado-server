@@ -58,6 +58,7 @@ def api():
     		return ageCategory
         def rating():
         	smiling = data['face'][i]['attribute']['smiling']['value']
+            rate = 1
         	if(smiling>75):
         		rate=5
         	if(smiling>61 and smiling<76):
